@@ -13,21 +13,46 @@
  */
 
 package Arrays_Hashing;
+import java.util.HashSet;
  
  
 //This is a brute force approach with Time Complexity O(n^2) bc the nested loop and Space Complexity O(1)
-public class ContainDuplicate {
+// public class ContainDuplicate {
+//     public static boolean IsDuplicate(int[] nums)
+//         {
+//             for(int i = 0; i < nums.length; i++ )
+//             {
+//                 for(int j = i+1;j < nums.length;j++)
+//                 {
+//                     if(nums[i]==nums[j])
+//                     {
+//                         return true;
+//                     }
+//                 }
+//             }
+//             return false;
+//         }
+        
+//         public static void main(String[] args) {
+//             int[] test1 = {1,2,3,4};
+//             int[] test2 = {1,2,3,3};
+//             System.out.println(IsDuplicate(test1));
+//             System.out.println(IsDuplicate(test2));        
+//     }
+//  }
+
+//This is HashSet Approach, Time Complexity O(n), Space complexity O(n)
+ public class ContainDuplicate {
     public static boolean IsDuplicate(int[] nums)
         {
-            for(int i = 0; i < nums.length; i++ )
+            HashSet<Integer> numbers = new HashSet<Integer>();
+            for(int i : nums)
             {
-                for(int j = i+1;j < nums.length;j++)
+                if(numbers.contains(i))
                 {
-                    if(nums[i]==nums[j])
-                    {
-                        return true;
-                    }
+                    return true;
                 }
+                numbers.add(i);
             }
             return false;
         }
@@ -39,5 +64,4 @@ public class ContainDuplicate {
             System.out.println(IsDuplicate(test2));        
     }
  }
-
  
