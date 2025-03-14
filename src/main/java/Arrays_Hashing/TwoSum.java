@@ -35,7 +35,7 @@ import java.util.HashMap;
 // -10,000,000 <= target <= 10,000,000
 
 public class TwoSum {
-    //Brute Force approach
+    //Brute Force approach, Time complexity O(n^2) nested loop
     // public static int[] twoSum(int[] nums, int target) {
     //     for(int i =0; i < nums.length; i++){
     //         for(int j = i+1; j< nums.length;j++){
@@ -47,7 +47,7 @@ public class TwoSum {
     //     return new int[] {};       
     // }
 
-    //HashMap Approach
+    //HashMap Approach (more complicated than brute force) but time complexity is O(n)
     public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> numbers = new HashMap<Integer,Integer>();
 
