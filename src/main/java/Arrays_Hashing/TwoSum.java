@@ -1,6 +1,7 @@
 package Arrays_Hashing;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 // Two Sum
 // Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
@@ -34,14 +35,30 @@ import java.util.Arrays;
 // -10,000,000 <= target <= 10,000,000
 
 public class TwoSum {
+    //Brute Force approach
+    // public static int[] twoSum(int[] nums, int target) {
+    //     for(int i =0; i < nums.length; i++){
+    //         for(int j = i+1; j< nums.length;j++){
+    //             if(nums[i]+ nums[j]== target){
+    //                 return new int[]{i, j};
+    //             }
+    //         }
+    //     }
+    //     return new int[] {};       
+    // }
+
+    //HashMap Approach
     public static int[] twoSum(int[] nums, int target) {
-        for(int i =0; i < nums.length; i++){
-            for(int j = i+1; j< nums.length;j++){
-                if(nums[i]+ nums[j]== target){
-                    return new int[]{i, j};
-                }
+        HashMap<Integer,Integer> numbers = new HashMap<Integer,Integer>();
+
+        for(int i = 0; i < nums.length;i++){
+            int remains = target - nums[i];
+            if(numbers.containsKey(remains)){
+                return new int[]{numbers.get(remains),i};
             }
+            numbers.put(nums[i],i);
         }
+
         return new int[] {};       
     }
 
